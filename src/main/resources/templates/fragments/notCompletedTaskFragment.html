@@ -1,0 +1,35 @@
+<!-- Div for not completed tasks -->
+<div th:fragment="notCompletedTask" class="not-completed-task">
+    <!-- Unordered list for each not completed task -->
+    <ul th:each="task : ${elementsNotCompleted}" class="list-group list-group-horizontal rounded-0 bg-transparent">
+        <!-- List item for the checkbox -->
+        <li class="list-group-item d-flex align-items-center ps-2 pe-3 py-1 rounded-0 border-0 bg-transparent">
+            <!-- Form for task completion checkbox -->
+            <div class="form-check">
+                <form th:action="@{/taskСomplete/{id}(id=${task.getId()})}" method="post">
+                    <!-- Hidden input for selected task ID -->
+                    <input type="hidden" name="selectedTaskId" th:id="'selectedTaskId' + ${task.getId()}" value="">
+                    <!-- Hidden input for task completion status -->
+                    <input type="hidden" name="taskIsComplete" th:id="'taskIsComplete' + ${task.getId()}" th:value="${task.markTaskAsComplete()}">
+                    <!-- Checkbox for task completion -->
+                    <input class="form-check-input me-0" type="checkbox" th:id="'checkboxTask' + ${task.getId()}" data-task-id="${task.getId()}" th:checked="${task.markTaskAsComplete()}"/>
+                </form>
+            </div>
+        </li>
+        <!-- List item for the task text -->
+        <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent task-text" data-bs-toggle="modal" data-bs-target="#editTaskModal" th:data-bs-whatever="${task.getText()}" th:data-task-id="${task.getId()}">
+            <!-- Paragraph for task text -->
+            <p class="lead fw-normal mb-0 task-text" th:text="${task.getText()}"></p>
+        </li>
+        <!-- List item for the task creation date -->
+        <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
+            <div class="text-end text-muted">
+                <!-- Tooltip for created date -->
+                <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
+                    <!-- Paragraph for created date -->
+                    <p class="small mb-0" th:text="${task.getAddDate()}"><i class="fas fa-info-circle me-2"></i></p>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

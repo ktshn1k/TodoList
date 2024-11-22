@@ -1,0 +1,108 @@
+/* Style for form control inside an element with id list1 */
+#list1 .form-control {
+    border-color: transparent;  /* Remove border color */
+}
+
+/* Style for focused form control inside an element with id list1 */
+#list1 .form-control:focus {
+    border-color: transparent;  /* Remove border color when focused */
+    box-shadow: none;  /* Remove box shadow when focused */
+}
+
+/* Style for readonly select input form control inside an element with id list1 */
+#list1 .select-input.form-control[readonly]:not([disabled]) {
+    background-color: #fbfbfb;  /* Set background color */
+}
+
+/* Uncomment this if you want to style unordered lists
+ul {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+*/
+
+/* Style for elements with class task-text */
+.task-text {
+    cursor: pointer;  /* Change cursor to pointer */
+    transition: all .2s ease-in-out;  /* Add transition for all properties */
+}
+
+/* Hover effect for elements with class task-text */
+.task-text:hover {
+    transform: scale(1.05);  /* Scale the element on hover */
+}
+
+/* Style for elements with class completed-task */
+.completed-task {
+    background-color: #b5b5b5;  /* Set background color */
+    border-radius: 7px;  /* Add rounded corners */
+}
+
+/* Style for elements with class custom-modal */
+.custom-modal {
+    display: none;  /* Initially hidden */
+    position: absolute;  /* Absolute positioning */
+    z-index: 1000;  /* High z-index */
+    background-color: #ffffff;  /* Set background color */
+    border: 1px solid #ccc;  /* Add border */
+    border-radius: 4px;  /* Add rounded corners */
+    padding: 15px;  /* Add padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Add box shadow */
+}
+
+/* Style for elements with class modal-content */
+.modal-content {
+    max-width: 300px;  /* Set maximum width */
+    margin: auto;  /* Center the element */
+}
+
+/* Scale-up animation for primary button on hover */
+button.btn-primary:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Shake animation for danger button on hover */
+button.btn-danger:hover {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Keyframes for shake animation */
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* Smooth color transition for form fields */
+input.form-control {
+    transition: background-color 0.1s ease;
+}
+
+/* Background color for focused form fields */
+input.form-control:focus {
+    background-color: #e6e6e6;
+}
+
+/* Fade-in animation for card */
+.card {
+    opacity: 0;
+    animation: fadeIn ease 0.3s;
+    animation-fill-mode: forwards;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
